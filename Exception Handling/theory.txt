@@ -1,0 +1,61 @@
+Exception - It is an unexpected event that occurs during the execution of a program, disrupting the normal flow.
+        Example: Division by zero, accessing a null object, reading a file that doesn’t exist.
+        In Java, exceptions are objects that inherit from the Throwable class.
+
+Hierarchy -
+
+Throwable
+ ├─ Error
+ └─ Exception
+     ├─ Checked Exception
+     └─ Unchecked Exception (RuntimeException)
+
+|   Error                                                                   |   Exception                      |
+| ------------------------------------------------------------------------- | -------------------------------- |
+| Serious problems, mostly outside program control (e.g., OutOfMemoryError) | Can be handled by the program    |
+| Serious issues in JVM, Not meant to be caught                             | Can and should be caught         |
+| Subclass of `Throwable`                                                   | Subclass of `Throwable`          |
+| ie - OutOfMemoryError, StackOverflowError.                                | ArithmeticException, IOException |
+
+Types of Exception -
+ 1. Checked
+ 2. Unchecked
+
+ Checked Exceptions -
+  - Also called compile-time exceptions.
+  - Must be handled using try-catch or declared using throws.
+  - Compiler forces us to handle them.
+    Example: IOException, SQLException, ClassNotFoundException.
+
+  Unchecked Exceptions -
+  - Also called runtime exceptions.
+  - Subclass of RuntimeException.
+  - Not checked at compile-time, can occur at runtime.
+  - Handling is optional, but recommended.
+  - Examples: ArithmeticException, NullPointerException, ArrayIndexOutOfBoundsException.
+
+Keywords -
+    1. Try - Where exception is possible
+    2. Catch - Where exception is being handled & prevents the program from terminating abruptly.
+    3. Throw - for Custom exception & to throw exception explicitly from a method
+    4. Throws - to indicate this code might throw one or more exception and that is not handled inside
+    5. Finally - to be executed in end automatically if defined & use for cleanup like closing files, releasing resources etc.
+
+Errors -
+    - An Error is a serious problem that occurs in the JVM (Java Virtual Machine) which is beyond the control of the program.
+    - Unlike exceptions, Errors are generally not handled in code, because they are not meant to be recovered from.
+    - Errors are subclasses of java.lang.Error.
+
+Types of Errors -
+    1. Runtime Errors
+    2. Compile Time Errors
+
+    Compile-Time Errors - Errors detected by the compiler before running the program.
+        Examples: Syntax errors, type mismatch, missing semicolons.
+        These are not part of Error class, but still “errors” in general sense.
+
+    Runtime Errors (Errors in JVM) - Occur during program execution, usually due to resource limitations or JVM issues.
+        These are subclasses of Error in Java.
+
+Common Errors - OutOfMemoryError, SystemError, LinkageError, StackOverflowError, VirtualMachineError
+

@@ -1,0 +1,28 @@
+LinkageError is runtime, unchecked, and JVM-level error.
+It occurs when
+    1. compiled with different version of jdk and running with different
+    2. When a method or field signature changes in a dependent class but calling code is not recompiled.
+        like
+            class A {
+                void show() { System.out.println("Old"); }
+            }   // older version
+            class A {
+                 void show(int x) { System.out.println("New"); }
+            } //newer version
+
+            calling a.show();
+                here the code is not recompiled so it will check for show() method without any argument but that doesn't exist anymore
+    3. When the compiled code needs a class to run but that is missing on run time
+    4. Multiple JARs contain the same class → JVM may pick the wrong one → runtime linking fails.
+    5. When a native method cannot find the required library.
+    6. JVM verifies bytecode at runtime. If class violates JVM rules, a VerifyError occurs.
+
+    Common LinkageErrors
+
+    |   Error Type                 | Cause                                                         |
+    |----------------------------- | ------------------------------------------------------------- |
+    | ClassNotFoundError           | JVM cannot find a required class at runtime                   |
+    | NoClassDefFoundError         | Class was present at compile-time but missing at runtime      |
+    | UnsupportedClassVersionError | Class compiled with a higher Java version than JVM running it |
+    | VerifyError                  | Bytecode verification fails (class modified incorrectly)      |
+    | IncompatibleClassChangeError | Class structure incompatible with compiled code               |
