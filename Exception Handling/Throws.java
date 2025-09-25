@@ -1,10 +1,14 @@
 package exception;
-class TestThrows{
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
-}
 public class Throws {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        String a;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        a = reader.readLine();
 
+        System.out.println(a);
     }
 }
 
